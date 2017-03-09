@@ -15,8 +15,10 @@ namespace Jabber
     [Activity(Label = "Jabber - Create account!", MainLauncher = false, Icon = "@drawable/icon")]
     public class RegisterActivity : Activity
     {
+
         protected override void OnCreate(Bundle bundle)
         {
+
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
@@ -27,6 +29,10 @@ namespace Jabber
             btnCancel.Click += delegate {
                 StartActivity(typeof(SignInActivity));
             };
+
         }
+
+        
+        
     }
 }

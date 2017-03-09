@@ -19,7 +19,7 @@
         android:inputType="textPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText5" />
+        android:id="@+id/tf_regUsername" />
     <TextView
         android:text="E-mail"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -30,7 +30,7 @@
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2" />
+        android:id="@+id/tf_regEmail" />
     <TextView
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -41,7 +41,7 @@
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3" />
+        android:id="@+id/tf_regPassword" />
     <TextView
         android:text="Confirm password"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -52,7 +52,7 @@
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4" />
+        android:id="@+id/tf_regConfirmPass" />
     <Button
         android:text="Register account!"
         android:layout_width="match_parent"

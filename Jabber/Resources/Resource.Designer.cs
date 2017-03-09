@@ -75,18 +75,6 @@ namespace Jabber
 			// aapt resource value: 0x7f05000f
 			public const int btn_signin = 2131034127;
 			
-			// aapt resource value: 0x7f050004
-			public const int editText2 = 2131034116;
-			
-			// aapt resource value: 0x7f050006
-			public const int editText3 = 2131034118;
-			
-			// aapt resource value: 0x7f050008
-			public const int editText4 = 2131034120;
-			
-			// aapt resource value: 0x7f050002
-			public const int editText5 = 2131034114;
-			
 			// aapt resource value: 0x7f050000
 			public const int textView1 = 2131034112;
 			
@@ -104,6 +92,18 @@ namespace Jabber
 			
 			// aapt resource value: 0x7f05000e
 			public const int tf_password = 2131034126;
+			
+			// aapt resource value: 0x7f050008
+			public const int tf_regConfirmPass = 2131034120;
+			
+			// aapt resource value: 0x7f050004
+			public const int tf_regEmail = 2131034116;
+			
+			// aapt resource value: 0x7f050006
+			public const int tf_regPassword = 2131034118;
+			
+			// aapt resource value: 0x7f050002
+			public const int tf_regUsername = 2131034114;
 			
 			// aapt resource value: 0x7f05000c
 			public const int tf_username = 2131034124;
