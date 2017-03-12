@@ -30,6 +30,24 @@ namespace Jabber
                 StartActivity(typeof(SignInActivity));
             };
 
+            EditText tfRegFirstname = FindViewById<EditText>(Resource.Id.tf_regFirstname);
+            EditText tfRegLastname = FindViewById<EditText>(Resource.Id.tf_regLastname);
+            EditText tfRegUsername = FindViewById<EditText>(Resource.Id.tf_regUsername);
+            EditText tfRegEmail = FindViewById<EditText>(Resource.Id.tf_regEmail);
+            EditText tfRegPassword = FindViewById<EditText>(Resource.Id.tf_regPassword);
+
+           User userTemp = new User (tfRegFirstname.Text, tfRegLastname.Text, tfRegUsername.Text, tfRegEmail.Text, tfRegPassword.Text);
+
+            Button btnRegister = FindViewById<Button>(Resource.Id.btn_register);
+
+            btnRegister.Click += delegate {
+                Register register = new Register(userTemp);
+                StartActivity(typeof(SignInActivity));
+            };
+            
+            
+
+
         }
 
         

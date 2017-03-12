@@ -4,22 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Enter account details below to register!"
+        android:text="Enter personal details:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:id="@+id/textView8" />
     <TextView
-        android:text="Username"
+        android:text="Firstname"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView6" />
     <EditText
         android:inputType="textPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tf_regUsername" />
+        android:id="@+id/tf_regFirstname" />
+    <TextView
+        android:text="Lastname"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7" />
+    <EditText
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tf_regLastname" />
     <TextView
         android:text="E-mail"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -31,6 +42,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tf_regEmail" />
+    <TextView
+        android:text="Enter account details:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9" />
+    <TextView
+        android:text="Username"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tf_regUsername" />
     <TextView
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -54,7 +82,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tf_regConfirmPass" />
     <Button
-        android:text="Register account!"
+        android:text="Register new account!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_register" />

@@ -14,15 +14,15 @@ namespace Jabber
 {
     public class User
     {
-        public string Name;
+        public string Firstname;
         public string Lastname;
         public string Username;
         public string Email;
         public string Password;
 
-        public User(string name, string lastname, string username, string email, string password)
+        public User(string firstname, string lastname, string username, string email, string password)
         {
-            Name = name;
+            Firstname = firstname;
             Lastname = lastname;
             Username = username;
             Email = email;
