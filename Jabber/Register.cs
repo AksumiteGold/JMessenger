@@ -16,46 +16,61 @@ namespace Jabber
 {
     public class Register
     {
-        public Register(User user)
+        public bool ControlEmail(User userE)
         {
-            //ControlEmail(user); 
-            //ControlUsername(user);
-            RegisterUser(user);        
+            bool exists = false;
+            string connString = "Server = 160.153.16.62; Port = 3306; Database = JabberDBA; Uid = JabberUser; Password = root123;";
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                using (MySqlCommand sqlCommand = new MySqlCommand("SELECT COUNT(*) from Users where Email like @email", conn))
+                {
+                    conn.Open();
+                    sqlCommand.Parameters.AddWithValue("@email", userE.Email);
+                    int emailCount = (int)sqlCommand.ExecuteScalar();
+
+                    if (emailCount >= 1)
+                    {
+                        exists = true;
+                    }
+                }
+            }
+
+            return exists;
         }
-            
 
         public bool ControlUsername(User userU)
         {
+            bool exists = false;
             string connString = "Server = 160.153.16.62; Port = 3306; Database = JabberDBA; Uid = JabberUser; Password = root123;";
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                using (MySqlCommand sqlCommand = new MySqlCommand("SELECT COUNT(*) from users where user_name like @username AND password like @password", conn))
+                using (MySqlCommand sqlCommand = new MySqlCommand("SELECT COUNT(*) from Users where Username like @username", conn))
                 {
                     conn.Open();
                     sqlCommand.Parameters.AddWithValue("@username", userU.Username);
-                    sqlCommand.Parameters.AddWithValue("@password", userU.Password);
-                    int userCount = (int)sqlCommand.ExecuteScalar();
+                    int usernameCount = (int)sqlCommand.ExecuteScalar();
+                    if(usernameCount >= 1)
+                    {
+                        exists = true;
+                    }
                 }
             }
 
-            return true;
+            return exists;
         }
 
-        public bool ControlEmail(User userE)
+        public bool ControlPasswordMatch(User userP)
         {
-            string connString = "Server = 160.153.16.62; Port = 3306; Database = JabberDBA; Uid = JabberUser; Password = root123;";
-            using (MySqlConnection conn = new MySqlConnection(connString))
+            bool match = false;
+            if(userP.Password == userP.ConfirmPassword)
             {
-                using (MySqlCommand sqlCommand = new MySqlCommand("SELECT COUNT(*) from users where user_name like @username AND password like @password", conn))
-                {
-                    conn.Open();
-                    sqlCommand.Parameters.AddWithValue("@username", userE.Username);
-                    sqlCommand.Parameters.AddWithValue("@password", userE.Password);
-                    int userCount = (int)sqlCommand.ExecuteScalar();
-                }
+                match = true;
             }
-
-            return true;
+            else
+            {
+                match = false;
+            }
+            return match;
         }
 
         public void RegisterUser(User userR)

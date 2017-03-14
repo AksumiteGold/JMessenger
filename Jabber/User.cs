@@ -19,14 +19,16 @@ namespace Jabber
         public string Username;
         public string Email;
         public string Password;
+        public string ConfirmPassword;
 
-        public User(string firstname, string lastname, string username, string email, string password)
+        public User(string firstname, string lastname, string username, string email, string password, string confirmpassword)
         {
             Firstname = firstname;
             Lastname = lastname;
             Username = username;
             Email = email;
             Password = password;
+            ConfirmPassword = confirmpassword;
         }
 
     }

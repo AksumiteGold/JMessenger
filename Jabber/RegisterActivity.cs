@@ -18,39 +18,45 @@ namespace Jabber
 
         protected override void OnCreate(Bundle bundle)
         {
-
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Register_Activity);
-
+            Button btnRegister = FindViewById<Button>(Resource.Id.btn_register);
             Button btnCancel = FindViewById<Button>(Resource.Id.btn_cancel);
+
+            btnRegister.Click += delegate {
+                EditText tfRegFirstname = FindViewById<EditText>(Resource.Id.tf_regFirstname);
+                EditText tfRegLastname = FindViewById<EditText>(Resource.Id.tf_regLastname);
+                EditText tfRegUsername = FindViewById<EditText>(Resource.Id.tf_regUsername);
+                EditText tfRegEmail = FindViewById<EditText>(Resource.Id.tf_regEmail);
+                EditText tfRegPassword = FindViewById<EditText>(Resource.Id.tf_regPassword);
+                EditText tfRegConfirmPassword = FindViewById<EditText>(Resource.Id.tf_regConfirmPass);
+                User userTemp = new User(tfRegFirstname.Text, tfRegLastname.Text, tfRegUsername.Text, tfRegEmail.Text, tfRegPassword.Text, tfRegConfirmPassword.Text);
+                Register register = new Register();
+
+                try
+                {
+                    if (register.ControlEmail(userTemp))
+                    {
+                        //do something
+                    }
+                    else
+                    {
+                        //do something
+                    }
+                }
+                catch
+                {
+
+                }
+                
+                //StartActivity(typeof(SignInActivity));
+            };
 
             btnCancel.Click += delegate {
                 StartActivity(typeof(SignInActivity));
             };
-
-            EditText tfRegFirstname = FindViewById<EditText>(Resource.Id.tf_regFirstname);
-            EditText tfRegLastname = FindViewById<EditText>(Resource.Id.tf_regLastname);
-            EditText tfRegUsername = FindViewById<EditText>(Resource.Id.tf_regUsername);
-            EditText tfRegEmail = FindViewById<EditText>(Resource.Id.tf_regEmail);
-            EditText tfRegPassword = FindViewById<EditText>(Resource.Id.tf_regPassword);
-
-           User userTemp = new User (tfRegFirstname.Text, tfRegLastname.Text, tfRegUsername.Text, tfRegEmail.Text, tfRegPassword.Text);
-
-            Button btnRegister = FindViewById<Button>(Resource.Id.btn_register);
-
-            btnRegister.Click += delegate {
-                Register register = new Register(userTemp);
-                StartActivity(typeof(SignInActivity));
-            };
-            
-            
-
-
         }
-
-        
-        
     }
 }
