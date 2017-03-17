@@ -20,7 +20,6 @@ namespace Jabber
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Register_Activity);
             Button btnRegister = FindViewById<Button>(Resource.Id.btn_register);
             Button btnCancel = FindViewById<Button>(Resource.Id.btn_cancel);
@@ -32,30 +31,23 @@ namespace Jabber
                 EditText tfRegEmail = FindViewById<EditText>(Resource.Id.tf_regEmail);
                 EditText tfRegPassword = FindViewById<EditText>(Resource.Id.tf_regPassword);
                 EditText tfRegConfirmPassword = FindViewById<EditText>(Resource.Id.tf_regConfirmPass);
-                User userTemp = new User(tfRegFirstname.Text, tfRegLastname.Text, tfRegUsername.Text, tfRegEmail.Text, tfRegPassword.Text, tfRegConfirmPassword.Text);
-                Register register = new Register();
 
                 try
                 {
-                    if (register.ControlEmail(userTemp))
-                    {
-                        //do something
-                    }
-                    else
-                    {
-                        //do something
-                    }
+                    User userTemp = new User(tfRegFirstname.Text, tfRegLastname.Text, tfRegUsername.Text, tfRegEmail.Text, tfRegPassword.Text, tfRegConfirmPassword.Text);
+                    Register register = new Register();
+                    register.RegisterUser(userTemp);
+                    StartActivity(typeof(SignInActivity));
                 }
-                catch
+                catch(Exception ex)
                 {
-
+                    Toast.MakeText(this, ex.Message, ToastLength.Long);
                 }
-                
-                //StartActivity(typeof(SignInActivity));
             };
 
             btnCancel.Click += delegate {
                 StartActivity(typeof(SignInActivity));
+                Toast.MakeText(this, "Going back to login", ToastLength.Long);
             };
         }
     }
