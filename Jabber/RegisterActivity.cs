@@ -35,8 +35,8 @@ namespace Jabber
                 try
                 {
                     User userTemp = new User(tfRegFirstname.Text, tfRegLastname.Text, tfRegUsername.Text, tfRegEmail.Text, tfRegPassword.Text, tfRegConfirmPassword.Text);
-                    Register register = new Register();
-                    register.RegisterUser(userTemp);
+                    //Register register = new Register();
+                    //register.RegisterUser(userTemp);
                     StartActivity(typeof(SignInActivity));
                 }
                 catch(Exception ex)

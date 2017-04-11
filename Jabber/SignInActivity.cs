@@ -15,8 +15,8 @@ namespace Jabber
     [Activity(Label = "Jabber - Sign in!", MainLauncher = false, Icon = "@drawable/icon")]
     public class SignInActivity : Activity
     {
-        public string username = "Abdella";
-        public string password = "Password";
+
+        public List<User> userList = new List<User>();
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -32,7 +32,20 @@ namespace Jabber
 
             btnSignIn.Click += delegate
             {
-                if(tfUsername.Text == username && tfPassword.Text == password )
+                RestHandler rest = new RestHandler();
+                rest.endPoint = "http://www.aksumitegold.se/REST/public/api/users";
+
+                string response = string.Empty;
+
+                response = rest.makeRequest();
+
+                //response = HttpUtility.JavaScriptStringEncode(JsonConvert.SerializeObject(response));
+
+                JsonHandler json = new JsonHandler();
+                json.DeserializeJsonString(response);
+                SignIn signIn = new SignIn();
+
+                if (signIn.checkUser(tfUsername.Text, tfPassword.Text, userList))
                 {
                     StartActivity(typeof(MainActivity));
                 }

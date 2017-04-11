@@ -14,21 +14,21 @@ namespace Jabber
 {
     public class User
     {
-        public string Firstname;
-        public string Lastname;
-        public string Username;
-        public string Email;
-        public string Password;
-        public string ConfirmPassword;
+        public string Id { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
 
-        public User(string firstname, string lastname, string username, string email, string password, string confirmpassword)
+        public User(string id, string firstname, string lastname, string email, string username, string password)
         {
+            Id = id;
             Firstname = firstname;
             Lastname = lastname;
-            Username = username;
             Email = email;
+            Username = username;
             Password = password;
-            ConfirmPassword = confirmpassword;
         }
 
     }
