@@ -14,23 +14,19 @@ using System.IO;
 
 namespace Jabber
 {
-    public class SignIn
+    public class SignIn: SignInActivity
     {
 
-        public bool checkUser(string username, string password, List<User> userlist)
+        public bool checkUser(string username, string password)
         {
             bool check = false;
 
-            List<User> tempList = new List<User>();
-
-            foreach(User u in userlist)
+            foreach(User u in userList)
             {
-                //if (u.Username == username && u.Password == password)
-                //{
-                //check = true;
-                //}
-
-                tempList.Add(u);
+                if (u.Username == username && u.Password == password)
+                {
+                   check = true;
+                }
             }
 
             return check;

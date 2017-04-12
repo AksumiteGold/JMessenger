@@ -30,8 +30,10 @@ namespace Jabber
             EditText tfUsername = FindViewById<EditText>(Resource.Id.tf_username);
             EditText tfPassword = FindViewById<EditText>(Resource.Id.tf_password);
 
+
             btnSignIn.Click += delegate
             {
+                
                 RestHandler rest = new RestHandler();
                 rest.endPoint = "http://www.aksumitegold.se/REST/public/api/users";
 
@@ -41,11 +43,14 @@ namespace Jabber
 
                 //response = HttpUtility.JavaScriptStringEncode(JsonConvert.SerializeObject(response));
 
+                //Skapar en instans av klassen JsonHandler...
                 JsonHandler json = new JsonHandler();
+                //Denna metod gör om json strängen till c# objekt och lägger in allt i List<User>userList
                 json.DeserializeJsonString(response);
                 SignIn signIn = new SignIn();
 
-                if (signIn.checkUser(tfUsername.Text, tfPassword.Text, userList))
+                //Om användarnamnet och lösenordet matchar så startas MainActivity där all personlig information hämtas, såsom konversationer och vänner.
+                if (signIn.checkUser(tfUsername.Text, tfPassword.Text))
                 {
                     StartActivity(typeof(MainActivity));
                 }
