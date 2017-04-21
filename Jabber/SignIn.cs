@@ -11,25 +11,32 @@ using Android.Views;
 using Android.Widget;
 using System.Net;
 using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Xamarin.Auth;
 
 namespace Jabber
 {
-    public class SignIn: SignInActivity
+
+    public class SignIn
     {
+        private static HttpClient Client = new HttpClient();
 
-        public bool checkUser(string username, string password)
+        //Autentiserar användaren mot databasen genom api
+        public string authenticateUser(string username, string password)
         {
-            bool check = false;
+            var status = "";
+            var authData = string.Format("{0}:{1}", username, password);
+            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
 
-            foreach(User u in userList)
+            for (int i = 0; i < 4; i++)
             {
-                if (u.Username == username && u.Password == password)
-                {
-                   check = true;
-                }
+                var result = Client.GetAsync("http://aksumitegold.se/REST/public/api/users").Result;
+                status = result.StatusCode.ToString();
             }
 
-            return check;
+            return status;
         }
     }
 }

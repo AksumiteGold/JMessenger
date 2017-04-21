@@ -16,8 +16,6 @@ namespace Jabber
     public class SignInActivity : Activity
     {
 
-        public List<User> userList = new List<User>();
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -33,27 +31,17 @@ namespace Jabber
 
             btnSignIn.Click += delegate
             {
-                
-                RestHandler rest = new RestHandler();
-                rest.endPoint = "http://www.aksumitegold.se/REST/public/api/users";
+                SignIn signin = new SignIn();
 
-                string response = string.Empty;
-
-                response = rest.makeRequest();
-
-                //response = HttpUtility.JavaScriptStringEncode(JsonConvert.SerializeObject(response));
-
-                //Skapar en instans av klassen JsonHandler...
-                JsonHandler json = new JsonHandler();
-                //Denna metod gör om json strängen till c# objekt och lägger in allt i List<User>userList
-                json.DeserializeJsonString(response);
-                SignIn signIn = new SignIn();
-
-                //Om användarnamnet och lösenordet matchar så startas MainActivity där all personlig information hämtas, såsom konversationer och vänner.
-                if (signIn.checkUser(tfUsername.Text, tfPassword.Text))
+                if(signin.authenticateUser(tfUsername.Text, tfPassword.Text) != "OK")
+                {
+                    Toast.MakeText(this, "Wrong credentials. Try again...", ToastLength.Short);
+                }
+                else
                 {
                     StartActivity(typeof(MainActivity));
                 }
+                
             };
 
             btnCreateAccount.Click += delegate {

@@ -21,7 +21,6 @@ namespace Jabber
 
             foreach (User u in result)
             {
-                userList.Add(u);
                 //Console.WriteLine(u.Firstname + " " + u.Lastname);
             }
         }
