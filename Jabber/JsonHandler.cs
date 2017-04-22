@@ -13,16 +13,19 @@ using Newtonsoft.Json;
 
 namespace Jabber
 {
-    public class JsonHandler : SignInActivity
+    public class JsonHandler
     {
-        public void DeserializeJsonString(string input)
+        public List<User> DeserializeJsonString(string input)
         {
+            var userlist = new List<User>();
             User[] result = JsonConvert.DeserializeObject<User[]>(input);
 
             foreach (User u in result)
             {
-                //Console.WriteLine(u.Firstname + " " + u.Lastname);
+                userlist.Add(u);
             }
+
+            return userlist;
         }
     }
 }

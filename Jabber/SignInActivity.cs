@@ -33,7 +33,7 @@ namespace Jabber
             {
                 SignIn signin = new SignIn();
 
-                if(signin.authenticateUser(tfUsername.Text, tfPassword.Text) != "OK")
+                if(signin.authenticateUser(tfUsername.Text, tfPassword.Text) == false)
                 {
                     Toast.MakeText(this, "Wrong credentials. Try again...", ToastLength.Short);
                 }

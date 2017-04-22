@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using System.Collections.Generic;
 
 namespace Jabber
 {
@@ -10,9 +11,19 @@ namespace Jabber
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Main);
 
-            // Set our view from the "main" layout resource
-            SetContentView (Resource.Layout.Main);
+            TextView displayUsername = FindViewById<TextView>(Resource.Id.tv_DisplayUsername);
+            GetData getdata = new GetData();
+            displayUsername.Text = getdata.getUsername();
+
+            Button signout = FindViewById<Button>(Resource.Id.btn_SignOut);
+            signout.Click += delegate
+            {
+                SignIn signin = new SignIn();
+                signin.DeleteCredentials();
+                StartActivity(typeof(SignInActivity));
+            };
         }
     }
 }
