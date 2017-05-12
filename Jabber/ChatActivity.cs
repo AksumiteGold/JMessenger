@@ -17,7 +17,8 @@ namespace Jabber
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Chat_Activity);
-            GetInfo("Abdella");
+            GetData getdata = new GetData();
+            GetInfo(getdata.getUsername());
         }
 
         public async void GetInfo(string name)
@@ -37,7 +38,7 @@ namespace Jabber
             {
                 this.RunOnUiThread(() =>
                 {
-                    Messages.Add(message);
+                    Messages.Add(user + ": " + message);
                     ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, Messages);
                     msgview.Adapter = adapter;
                     //text.Text += string.Format("Received Msg: {0}\r\n", message); 
@@ -58,7 +59,7 @@ namespace Jabber
             btn_send.Click += async delegate
             {
                 var chatmsg = FindViewById<EditText>(Resource.Id.msg).Text;
-                await chatHubProxy.Invoke("SendMessage", new object[] { "Abdella", chatmsg });
+                await chatHubProxy.Invoke("SendMessage", new object[] { name, chatmsg });
             };
 
         }
