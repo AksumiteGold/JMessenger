@@ -24,6 +24,11 @@ namespace Jabber
                 signin.DeleteCredentials();
                 StartActivity(typeof(SignInActivity));
             };
+
+            Button btnOpenChat = FindViewById<Button>(Resource.Id.btn_OpenChat);
+            btnOpenChat.Click += delegate {
+                StartActivity(typeof(ChatActivity));
+            };
         }
     }
 }
