@@ -20,7 +20,7 @@ namespace Jabber
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Welcome_Activity);
+            SetContentView(Resource.Layout.layout1);
 
             Button btnProceed = FindViewById<Button>(Resource.Id.btn_proceed);
 

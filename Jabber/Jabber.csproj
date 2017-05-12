@@ -135,7 +135,9 @@
     <AndroidResource Include="Resources\layout\Register.axml" />
     <AndroidResource Include="Resources\layout\Register_Activity.axml" />
     <AndroidResource Include="Resources\layout\SignIn_Activity.axml" />
-    <AndroidResource Include="Resources\layout\Welcome_Activity.axml" />
+    <AndroidResource Include="Resources\layout\Welcome_Activity.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
