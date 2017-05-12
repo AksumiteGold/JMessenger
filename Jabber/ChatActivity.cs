@@ -41,7 +41,7 @@ namespace Jabber
                     Messages.Add(user + ": " + message);
                     ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, Messages);
                     msgview.Adapter = adapter;
-                    //text.Text += string.Format("Received Msg: {0}\r\n", message); 
+                    //text.Text += string.Format("Received Msg: {0}\r\n", message);
                 });
             });
 
@@ -58,8 +58,9 @@ namespace Jabber
             Button btn_send = FindViewById<Button>(Resource.Id.btn_send);
             btn_send.Click += async delegate
             {
-                var chatmsg = FindViewById<EditText>(Resource.Id.msg).Text;
-                await chatHubProxy.Invoke("SendMessage", new object[] { name, chatmsg });
+                EditText chatmsg = (EditText)FindViewById(Resource.Id.msg);
+                await chatHubProxy.Invoke("SendMessage", new object[] { name, chatmsg.Text });
+                chatmsg.Text = "";
             };
 
         }
