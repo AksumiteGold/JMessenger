@@ -39,9 +39,9 @@ namespace Jabber
         private static HttpClient Client = new HttpClient();
 
         //Hämtar användarID med hjälp av JsonHandler klassen 
-        public string getUserID()
+        public int getUserID()
         {
-            var userID = "";
+            int userID = 0;
             var authData = string.Format("{0}:{1}", UserName, Password);
             var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
@@ -77,20 +77,19 @@ namespace Jabber
         }
 
         //gör om så att den retunerar en lista istället för ett tal
-        public string getFriends()
+        public List<int> getFriends()
         {
-            var friends = "";
+            List<int> friends = new List<int>();
             JsonHandler json = new JsonHandler();
             var result = Client.GetStringAsync("http://aksumitegold.se/Friends/public/api/friends/all").Result;
 
             List<Friend> range = json.DeserializeFriendsJsonString(result);
             foreach (Friend f in range)
             {
-                if(f.Id == 20)
+                if(f.Id == getUserID())
                 {
-                    friends = f.ContactID.ToString();
-                }
-                
+                    friends.Add(f.ContactID);
+                } 
             }
 
             return friends;

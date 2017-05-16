@@ -19,6 +19,16 @@ namespace Jabber
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.testing);
+            ListView friendListview = FindViewById<ListView>(Resource.Id.friendsview);
+
+            GetData getdata = new GetData();
+            var Friends = new List<int>();
+            foreach (int i in getdata.getFriends())
+            {
+                Friends.Add(i);
+                ArrayAdapter<int> adapter = new ArrayAdapter<int>(this, Android.Resource.Layout.SimpleListItem1, Friends);
+                friendListview.Adapter = adapter;
+            }
         }
     }
 }
