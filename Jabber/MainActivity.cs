@@ -15,7 +15,7 @@ namespace Jabber
 
             TextView displayUsername = FindViewById<TextView>(Resource.Id.tv_DisplayUsername);
             GetData getdata = new GetData();
-            displayUsername.Text = getdata.getUsername();
+            displayUsername.Text = getdata.getFriends();
 
             Button signout = FindViewById<Button>(Resource.Id.btn_SignOut);
             signout.Click += delegate
@@ -29,6 +29,8 @@ namespace Jabber
             btnOpenChat.Click += delegate {
                 StartActivity(typeof(ChatActivity));
             };
+
+
         }
     }
 }

@@ -27,5 +27,18 @@ namespace Jabber
 
             return userlist;
         }
+
+        public List<Friend> DeserializeFriendsJsonString(string input)
+        {
+            var friendlist = new List<Friend>();
+            Friend[] result = JsonConvert.DeserializeObject<Friend[]>(input);
+
+            foreach (Friend f in result)
+            {
+                friendlist.Add(f);
+            }
+
+            return friendlist;
+        }
     }
 }

@@ -2289,7 +2289,10 @@ namespace Jabber
 			public const int btn_createAccount = 2131165366;
 			
 			// aapt resource value: 0x7f0700b8
-			public const int btn_proceed = 2131165368;
+			public const int btn_goBack = 2131165368;
+			
+			// aapt resource value: 0x7f0700ba
+			public const int btn_proceed = 2131165370;
 			
 			// aapt resource value: 0x7f0700af
 			public const int btn_register = 2131165359;
@@ -2401,6 +2404,9 @@ namespace Jabber
 			
 			// aapt resource value: 0x7f070038
 			public const int @fixed = 2131165240;
+			
+			// aapt resource value: 0x7f0700b7
+			public const int friendsview = 2131165367;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -2750,8 +2756,8 @@ namespace Jabber
 			// aapt resource value: 0x7f0700b1
 			public const int tv_username = 2131165361;
 			
-			// aapt resource value: 0x7f0700b7
-			public const int tv_welcome = 2131165367;
+			// aapt resource value: 0x7f0700b9
+			public const int tv_welcome = 2131165369;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
@@ -3027,7 +3033,10 @@ namespace Jabber
 			public const int support_simple_spinner_dropdown_item = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int Welcome_Activity = 2130903100;
+			public const int testing = 2130903100;
+			
+			// aapt resource value: 0x7f03003d
+			public const int Welcome_Activity = 2130903101;
 			
 			static Layout()
 			{

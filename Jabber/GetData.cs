@@ -38,6 +38,25 @@ namespace Jabber
 
         private static HttpClient Client = new HttpClient();
 
+        //Hämtar användarID med hjälp av JsonHandler klassen 
+        public string getUserID()
+        {
+            var userID = "";
+            var authData = string.Format("{0}:{1}", UserName, Password);
+            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
+            JsonHandler json = new JsonHandler();
+            var result = Client.GetStringAsync("http://aksumitegold.se/REST/public/api/user").Result;
+
+            List<User> range = json.DeserializeJsonString(result);
+            foreach (User u in range)
+            {
+                userID = u.Id;
+            }
+
+            return userID;
+        }
+
         //Hämtar användarnamnet med hjälp av JsonHandler klassen 
         public string getUsername()
         {
@@ -55,6 +74,26 @@ namespace Jabber
             }
 
             return username;
+        }
+
+        //gör om så att den retunerar en lista istället för ett tal
+        public string getFriends()
+        {
+            var friends = "";
+            JsonHandler json = new JsonHandler();
+            var result = Client.GetStringAsync("http://aksumitegold.se/Friends/public/api/friends/all").Result;
+
+            List<Friend> range = json.DeserializeFriendsJsonString(result);
+            foreach (Friend f in range)
+            {
+                if(f.Id == 20)
+                {
+                    friends = f.ContactID.ToString();
+                }
+                
+            }
+
+            return friends;
         }
     }
 }
