@@ -22,13 +22,20 @@ namespace Jabber
             ListView friendListview = FindViewById<ListView>(Resource.Id.friendsview);
 
             GetData getdata = new GetData();
-            var Friends = new List<int>();
-            foreach (int i in getdata.getFriends())
+            var FriendsID = new List<int>();
+            var Friends = new List<string>();
+
+            foreach (string i in getdata.getFriends())
             {
                 Friends.Add(i);
-                ArrayAdapter<int> adapter = new ArrayAdapter<int>(this, Android.Resource.Layout.SimpleListItem1, Friends);
+                ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, Friends);
                 friendListview.Adapter = adapter;
             }
+
+            Button btnGoBack = FindViewById<Button>(Resource.Id.btn_goBack);
+            btnGoBack.Click += delegate {
+                StartActivity(typeof(MainActivity));
+            };
         }
     }
 }

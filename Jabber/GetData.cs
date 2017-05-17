@@ -76,23 +76,49 @@ namespace Jabber
             return username;
         }
 
-        //gör om så att den retunerar en lista istället för ett tal
-        public List<int> getFriends()
+        //Hämtar alla användarnamn med hjälp av JsonHandler klassen 
+        public List<User> getUsernames()
         {
-            List<int> friends = new List<int>();
+            List<User> username = new List<User>();
+            var authData = string.Format("{0}:{1}", UserName, Password);
+            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
+
+            JsonHandler json = new JsonHandler();
+            var result = Client.GetStringAsync("http://aksumitegold.se/REST/public/api/users").Result;
+
+            List<User> range = json.DeserializeJsonString(result);
+            foreach (User u in range)
+            {
+                username.Add(u);
+            }
+
+            return username;
+        }
+
+        //Hämtar alla vänner beroende på vilket id som är inloggat
+        public List<string> getFriends()
+        {
+            List<string> Users = new List<string>();
+
             JsonHandler json = new JsonHandler();
             var result = Client.GetStringAsync("http://aksumitegold.se/Friends/public/api/friends/all").Result;
 
             List<Friend> range = json.DeserializeFriendsJsonString(result);
             foreach (Friend f in range)
             {
-                if(f.Id == getUserID())
+                if (f.Id == getUserID())
                 {
-                    friends.Add(f.ContactID);
-                } 
+                    foreach (User u in getUsernames())
+                    {
+                        if(f.ContactID == u.Id)
+                        {
+                            Users.Add(u.Username);
+                        }
+                    }
+                }    
             }
-
-            return friends;
+            return Users;
         }
     }
 }
