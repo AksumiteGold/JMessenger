@@ -38,7 +38,7 @@ namespace Jabber
 
         private static HttpClient Client = new HttpClient();
 
-        //Hämtar användarID med hjälp av JsonHandler klassen 
+        //Hämtar användarID med hjälp av JsonHandler klassen
         public int getUserID()
         {
             int userID = 0;

@@ -18,10 +18,10 @@ namespace Jabber
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Chat_Activity);
             GetData getdata = new GetData();
-            GetInfo(getdata.getUsername());
+            GetInfo(getdata.getUsername(), "room");
         }
 
-        public async void GetInfo(string name)
+        public async void GetInfo(string name, string room)
         {
             ListView msgview = FindViewById<ListView>(Resource.Id.msgview);
             var Messages = new List<string>();
@@ -32,8 +32,10 @@ namespace Jabber
             // Create a proxy to the 'ChatHub' SignalR Hub 
             var chatHubProxy = hubConnection.CreateHubProxy("ChatHub");
 
+
             // Wire up a handler for the 'UpdateChatMessage' for the server
             // to be called on our client
+            //chatHubProxy.On<string, string>("broadcastMessage", (user, message) =>
             chatHubProxy.On<string, string>("broadcastMessage", (user, message) =>
             {
                 this.RunOnUiThread(() =>
@@ -47,7 +49,7 @@ namespace Jabber
 
             try
             {
-                // Start the connection 
+                // Start the connection
                 await hubConnection.Start();
             }
             catch (Exception ex)
@@ -59,7 +61,9 @@ namespace Jabber
             btn_send.Click += async delegate
             {
                 EditText chatmsg = (EditText)FindViewById(Resource.Id.msg);
-                await chatHubProxy.Invoke("SendMessage", new object[] { name, chatmsg.Text });
+                //await chatHubProxy.Invoke("SendMessage", new object[] { name, chatmsg.Text });
+                await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, chatmsg.Text, "room" });
+
                 chatmsg.Text = "";
             };
 
