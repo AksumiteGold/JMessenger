@@ -24,22 +24,22 @@ namespace Jabber
             Button btnRegister = FindViewById<Button>(Resource.Id.btn_register);
             Button btnCancel = FindViewById<Button>(Resource.Id.btn_cancel);
 
-            btnRegister.Click += delegate {
+            btnRegister.Click += async delegate
+            {
                 EditText tfRegFirstname = FindViewById<EditText>(Resource.Id.tf_regFirstname);
                 EditText tfRegLastname = FindViewById<EditText>(Resource.Id.tf_regLastname);
-                EditText tfRegUsername = FindViewById<EditText>(Resource.Id.tf_regUsername);
                 EditText tfRegEmail = FindViewById<EditText>(Resource.Id.tf_regEmail);
+                EditText tfRegUsername = FindViewById<EditText>(Resource.Id.tf_regUsername);
                 EditText tfRegPassword = FindViewById<EditText>(Resource.Id.tf_regPassword);
-                EditText tfRegConfirmPassword = FindViewById<EditText>(Resource.Id.tf_regConfirmPass);
 
                 try
                 {
-                    User userTemp = new User(tfRegFirstname.Text, tfRegLastname.Text, tfRegUsername.Text, tfRegEmail.Text, tfRegPassword.Text);
-                    //Register register = new Register();
-                    //register.RegisterUser(userTemp);
+                    User userTemp = new User(tfRegFirstname.Text, tfRegLastname.Text, tfRegEmail.Text, tfRegUsername.Text, tfRegPassword.Text);
+                    Register register = new Register();
+                    await register.registerUser(userTemp);
                     StartActivity(typeof(SignInActivity));
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Toast.MakeText(this, ex.Message, ToastLength.Long);
                 }

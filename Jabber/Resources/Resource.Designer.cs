@@ -2285,26 +2285,26 @@ namespace Jabber
 			// aapt resource value: 0x7f070077
 			public const int btn_SignOut = 2131165303;
 			
-			// aapt resource value: 0x7f0700b1
-			public const int btn_cancel = 2131165361;
+			// aapt resource value: 0x7f0700af
+			public const int btn_cancel = 2131165359;
+			
+			// aapt resource value: 0x7f0700b5
+			public const int btn_createAccount = 2131165365;
 			
 			// aapt resource value: 0x7f0700b7
-			public const int btn_createAccount = 2131165367;
+			public const int btn_goBack = 2131165367;
 			
 			// aapt resource value: 0x7f0700b9
-			public const int btn_goBack = 2131165369;
+			public const int btn_proceed = 2131165369;
 			
-			// aapt resource value: 0x7f0700bb
-			public const int btn_proceed = 2131165371;
-			
-			// aapt resource value: 0x7f0700b0
-			public const int btn_register = 2131165360;
+			// aapt resource value: 0x7f0700ae
+			public const int btn_register = 2131165358;
 			
 			// aapt resource value: 0x7f07006b
 			public const int btn_send = 2131165291;
 			
-			// aapt resource value: 0x7f0700b6
-			public const int btn_signin = 2131165366;
+			// aapt resource value: 0x7f0700b4
+			public const int btn_signin = 2131165364;
 			
 			// aapt resource value: 0x7f070044
 			public const int buttonPanel = 2131165252;
@@ -2408,8 +2408,8 @@ namespace Jabber
 			// aapt resource value: 0x7f070038
 			public const int @fixed = 2131165240;
 			
-			// aapt resource value: 0x7f0700b8
-			public const int friendsview = 2131165368;
+			// aapt resource value: 0x7f0700b6
+			public const int friendsview = 2131165366;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -2696,9 +2696,6 @@ namespace Jabber
 			// aapt resource value: 0x7f0700ac
 			public const int textView4 = 2131165356;
 			
-			// aapt resource value: 0x7f0700ae
-			public const int textView5 = 2131165358;
-			
 			// aapt resource value: 0x7f0700a4
 			public const int textView6 = 2131165348;
 			
@@ -2708,11 +2705,8 @@ namespace Jabber
 			// aapt resource value: 0x7f0700a3
 			public const int textView8 = 2131165347;
 			
-			// aapt resource value: 0x7f0700b5
-			public const int tf_password = 2131165365;
-			
-			// aapt resource value: 0x7f0700af
-			public const int tf_regConfirmPass = 2131165359;
+			// aapt resource value: 0x7f0700b3
+			public const int tf_password = 2131165363;
 			
 			// aapt resource value: 0x7f0700a9
 			public const int tf_regEmail = 2131165353;
@@ -2729,8 +2723,8 @@ namespace Jabber
 			// aapt resource value: 0x7f0700ab
 			public const int tf_regUsername = 2131165355;
 			
-			// aapt resource value: 0x7f0700b3
-			public const int tf_username = 2131165363;
+			// aapt resource value: 0x7f0700b1
+			public const int tf_username = 2131165361;
 			
 			// aapt resource value: 0x7f070099
 			public const int time = 2131165337;
@@ -2753,14 +2747,14 @@ namespace Jabber
 			// aapt resource value: 0x7f070076
 			public const int tv_DisplayUsername = 2131165302;
 			
-			// aapt resource value: 0x7f0700b4
-			public const int tv_password = 2131165364;
-			
 			// aapt resource value: 0x7f0700b2
-			public const int tv_username = 2131165362;
+			public const int tv_password = 2131165362;
 			
-			// aapt resource value: 0x7f0700ba
-			public const int tv_welcome = 2131165370;
+			// aapt resource value: 0x7f0700b0
+			public const int tv_username = 2131165360;
+			
+			// aapt resource value: 0x7f0700b8
+			public const int tv_welcome = 2131165368;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;

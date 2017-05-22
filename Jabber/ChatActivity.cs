@@ -24,6 +24,7 @@ namespace Jabber
         public async void GetInfo(string name, string room)
         {
             ListView msgview = FindViewById<ListView>(Resource.Id.msgview);
+            EditText chatmsg = (EditText)FindViewById(Resource.Id.msg);
             var Messages = new List<string>();
 
             // Connect to the server
@@ -32,11 +33,10 @@ namespace Jabber
             // Create a proxy to the 'ChatHub' SignalR Hub 
             var chatHubProxy = hubConnection.CreateHubProxy("ChatHub");
 
-
             // Wire up a handler for the 'UpdateChatMessage' for the server
             // to be called on our client
             //chatHubProxy.On<string, string>("broadcastMessage", (user, message) =>
-            chatHubProxy.On<string, string>("broadcastMessage", (user, message) =>
+            chatHubProxy.On<string, string>("addChatMessage", (user, message) =>
             {
                 this.RunOnUiThread(() =>
                 {
@@ -58,12 +58,13 @@ namespace Jabber
             }
 
             Button btn_send = FindViewById<Button>(Resource.Id.btn_send);
+
+            await chatHubProxy.Invoke("JoinRoom", new object[] { name, room });
+
             btn_send.Click += async delegate
             {
-                EditText chatmsg = (EditText)FindViewById(Resource.Id.msg);
                 //await chatHubProxy.Invoke("SendMessage", new object[] { name, chatmsg.Text });
-                await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, chatmsg.Text, "room" });
-
+                await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, chatmsg.Text, room });
                 chatmsg.Text = "";
             };
 

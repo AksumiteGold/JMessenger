@@ -132,6 +132,7 @@
     <Compile Include="GetData.cs" />
     <Compile Include="JsonHandler.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Register.cs" />
     <Compile Include="RegisterActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
