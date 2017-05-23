@@ -21,26 +21,25 @@ namespace Jabber
             GetInfo(getdata.getUsername(), "room");
         }
 
+        //This method will get the info from the chat server and send 
         public async void GetInfo(string name, string room)
         {
             ListView msgview = FindViewById<ListView>(Resource.Id.msgview);
             EditText chatmsg = (EditText)FindViewById(Resource.Id.msg);
             var Messages = new List<string>();
 
-            // Connect to the server
+            // Connection to the server
             var hubConnection = new HubConnection("http://jabberserver.azurewebsites.net/");
 
-            // Create a proxy to the 'ChatHub' SignalR Hub 
+            // This creates a proxy to the 'ChatHub' SignalR Hub 
             var chatHubProxy = hubConnection.CreateHubProxy("ChatHub");
 
-            // Wire up a handler for the 'UpdateChatMessage' for the server
+            // Wire up a handler for the 'addChatMessage' for the server
             // to be called on our client
-            //chatHubProxy.On<string, string>("broadcastMessage", (user, message) =>
             chatHubProxy.On<string, string>("addChatMessage", (user, message) =>
             {
                 this.RunOnUiThread(() =>
                 {
-                    //Messages.Add(user + ": " + message);
                     Messages.Add(user + ": " + Cryptology.Decrypt(message, "abdella"));
                     ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, Messages);
                     msgview.Adapter = adapter;
@@ -50,7 +49,7 @@ namespace Jabber
 
             try
             {
-                // Start the connection
+                // Starts the connection to the server
                 await hubConnection.Start();
             }
             catch (Exception ex)
@@ -60,13 +59,12 @@ namespace Jabber
 
             Button btn_send = FindViewById<Button>(Resource.Id.btn_send);
 
+            //This will join the user to the room through the "JoinRoom" method in the server
             await chatHubProxy.Invoke("JoinRoom", new object[] { name, room });
-            
+
+            //This button will send the message through the "SendToSpecificRoom" method in the server 
             btn_send.Click += async delegate
             {
-                
-                //await chatHubProxy.Invoke("SendMessage", new object[] { name, chatmsg.Text });
-                //await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, chatmsg.Text, room });
                 await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, Cryptology.Encrypt(chatmsg.Text, "abdella"), room });
                 chatmsg.Text = "";
             };
