@@ -40,7 +40,8 @@ namespace Jabber
             {
                 this.RunOnUiThread(() =>
                 {
-                    Messages.Add(user + ": " + message);
+                    //Messages.Add(user + ": " + message);
+                    Messages.Add(user + ": " + Cryptology.Decrypt(message, "abdella"));
                     ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, Messages);
                     msgview.Adapter = adapter;
                     //text.Text += string.Format("Received Msg: {0}\r\n", message);
@@ -60,11 +61,13 @@ namespace Jabber
             Button btn_send = FindViewById<Button>(Resource.Id.btn_send);
 
             await chatHubProxy.Invoke("JoinRoom", new object[] { name, room });
-
+            
             btn_send.Click += async delegate
             {
+                
                 //await chatHubProxy.Invoke("SendMessage", new object[] { name, chatmsg.Text });
-                await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, chatmsg.Text, room });
+                //await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, chatmsg.Text, room });
+                await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, Cryptology.Encrypt(chatmsg.Text, "abdella"), room });
                 chatmsg.Text = "";
             };
 

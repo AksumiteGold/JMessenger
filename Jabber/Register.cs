@@ -37,5 +37,24 @@ namespace Jabber
                 throw new ArgumentException();
             }
         }
+
+        public async Task addFriend(Friend friend)
+        {
+            string RestUrl = "http://aksumitegold.se/Friends/public/api/friends/add";
+            var uri = new Uri(string.Format(RestUrl));
+
+            var json = JsonConvert.SerializeObject(friend);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = null;
+            try
+            {
+                response = await Client.PostAsync(uri, content);
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException();
+            }
+        }
     }
 }

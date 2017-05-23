@@ -127,8 +127,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChatActivity.cs" />
+    <Compile Include="Cryptology.cs" />
     <Compile Include="Friend.cs" />
     <Compile Include="FriendListActivity.cs" />
+    <Compile Include="FriendsActivity.cs" />
     <Compile Include="GetData.cs" />
     <Compile Include="JsonHandler.cs" />
     <Compile Include="MainActivity.cs" />
@@ -157,6 +159,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\testing.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Friends_Activity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

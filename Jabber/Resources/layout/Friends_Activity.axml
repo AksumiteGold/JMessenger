@@ -2,33 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    android:layout_height="match_parent">
     <TextView
-        android:text="Welcome!"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
-    <TextView
+        android:text="Username to add:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_DisplayUsername" />
-    <Button
-        android:text="Sign out"
+        android:id="@+id/textView1" />
+    <EditText
+        android:inputType="textPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_SignOut" />
+        android:id="@+id/tf_UsernameAdd" />
     <Button
-        android:text="Open new chat"
+        android:text="Add friend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_OpenChat" />
+        android:id="@+id/btn_addFriend" />
     <Button
-        android:text="Friends"
+        android:text="Open friend list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_OpenFriends" />
+        android:id="@+id/btn_openFriendList" />
 </LinearLayout>

@@ -34,7 +34,7 @@ namespace Jabber
 
             Button btnGoBack = FindViewById<Button>(Resource.Id.btn_goBack);
             btnGoBack.Click += delegate {
-                StartActivity(typeof(MainActivity));
+                StartActivity(typeof(FriendsActivity));
             };
         }
     }

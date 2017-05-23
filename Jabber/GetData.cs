@@ -120,5 +120,28 @@ namespace Jabber
             }
             return Users;
         }
+
+        //Hämtar specifik användare
+        public int getUserIDbyUsername(string findUser)
+        {
+            int userID = 0;
+            var authData = string.Format("{0}:{1}", UserName, Password);
+            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
+
+            JsonHandler json = new JsonHandler();
+            var result = Client.GetStringAsync("http://aksumitegold.se/REST/public/api/users").Result;
+
+            List<User> range = json.DeserializeJsonString(result);
+            foreach (User u in range)
+            {
+                if(u.Username == findUser)
+                {
+                    userID = u.Id;
+                }
+            }
+
+            return userID;
+        }
     }
 }

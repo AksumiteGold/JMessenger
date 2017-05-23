@@ -30,9 +30,9 @@ namespace Jabber
                 StartActivity(typeof(ChatActivity));
             };
 
-            Button btnOpenFriendList = FindViewById<Button>(Resource.Id.btn_OpenFriendList);
-            btnOpenFriendList.Click += delegate {
-                StartActivity(typeof(FriendListActivity));
+            Button btnOpenFriends = FindViewById<Button>(Resource.Id.btn_OpenFriends);
+            btnOpenFriends.Click += delegate {
+                StartActivity(typeof(FriendsActivity));
             };
 
 
