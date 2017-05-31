@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Jabber
 {
-    [Activity(Label = "Jabber - Start", MainLauncher = false, Icon = "@drawable/icon")]
+    [Activity(Label = "Jabber - Home", MainLauncher = false, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -23,6 +23,7 @@ namespace Jabber
                 SignIn signin = new SignIn();
                 signin.DeleteCredentials();
                 StartActivity(typeof(SignInActivity));
+                Finish();
             };
 
             Button btnOpenChat = FindViewById<Button>(Resource.Id.btn_OpenChat);
@@ -34,8 +35,13 @@ namespace Jabber
             btnOpenFriends.Click += delegate {
                 StartActivity(typeof(FriendsActivity));
             };
+        }
 
-
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            SignIn signin = new SignIn();
+            signin.DeleteCredentials();
         }
     }
 }

@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Jabber
 {
-    [Activity(Label = "Jabber - Friends", MainLauncher = false, Icon = "@drawable/icon")]
+    [Activity(Label = "Jabber - Friend list", MainLauncher = false, Icon = "@drawable/icon")]
     public class FriendListActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -35,6 +35,7 @@ namespace Jabber
             Button btnGoBack = FindViewById<Button>(Resource.Id.btn_goBack);
             btnGoBack.Click += delegate {
                 StartActivity(typeof(FriendsActivity));
+                Finish();
             };
         }
     }

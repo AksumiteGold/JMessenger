@@ -65,10 +65,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/tf_regPassword" />
     <Button
-        android:text="Register new account!"
+        android:text="Create account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_register" />
+        android:id="@+id/btn_createAccount" />
     <Button
         android:text="Cancel"
         android:layout_width="match_parent"

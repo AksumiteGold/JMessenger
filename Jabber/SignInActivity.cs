@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Jabber
 {
-    [Activity(Label = "Jabber - Sign in!", MainLauncher = false, Icon = "@drawable/icon")]
+    [Activity(Label = "Jabber - Sign in", MainLauncher = false, Icon = "@drawable/icon")]
     public class SignInActivity : Activity
     {
 
@@ -32,20 +32,23 @@ namespace Jabber
             btnSignIn.Click += delegate
             {
                 SignIn signin = new SignIn();
+                signin.DeleteCredentials();
 
-                if(signin.authenticateUser(tfUsername.Text, tfPassword.Text) == false)
+                if (signin.authenticateUser(tfUsername.Text, tfPassword.Text) == false)
                 {
                     Toast.MakeText(this, "Wrong credentials. Try again...", ToastLength.Short);
                 }
                 else
-                {
+                {                    
                     StartActivity(typeof(MainActivity));
+                    Finish();
                 }
                 
             };
 
             btnCreateAccount.Click += delegate {
                 StartActivity(typeof(RegisterActivity));
+                Finish();
             };
         }
     }

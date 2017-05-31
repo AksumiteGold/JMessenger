@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Jabber
 {
-    [Activity(Label = "Jabber - Create account!", MainLauncher = false, Icon = "@drawable/icon")]
+    [Activity(Label = "Jabber - Create account", MainLauncher = false, Icon = "@drawable/icon")]
     public class RegisterActivity : Activity
     {
 
@@ -21,10 +21,10 @@ namespace Jabber
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.Register_Activity);
-            Button btnRegister = FindViewById<Button>(Resource.Id.btn_register);
+            Button btnCreateAccount = FindViewById<Button>(Resource.Id.btn_createAccount);
             Button btnCancel = FindViewById<Button>(Resource.Id.btn_cancel);
 
-            btnRegister.Click += async delegate
+            btnCreateAccount.Click += async delegate
             {
                 EditText tfRegFirstname = FindViewById<EditText>(Resource.Id.tf_regFirstname);
                 EditText tfRegLastname = FindViewById<EditText>(Resource.Id.tf_regLastname);
@@ -38,6 +38,7 @@ namespace Jabber
                     Register register = new Register();
                     await register.registerUser(userTemp);
                     StartActivity(typeof(SignInActivity));
+                    Finish();
                 }
                 catch (Exception ex)
                 {
@@ -48,6 +49,7 @@ namespace Jabber
             btnCancel.Click += delegate {
                 StartActivity(typeof(SignInActivity));
                 Toast.MakeText(this, "Going back to login", ToastLength.Long);
+                Finish();
             };
         }
     }

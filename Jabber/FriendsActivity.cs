@@ -29,7 +29,11 @@ namespace Jabber
                 Friend friendtoadd = new Friend(getuser.getUserID(), getuser.getUserIDbyUsername(userToAdd.Text));
                 try
                 {
-                    await register.addFriend(friendtoadd);
+                    if(userToAdd.Text != "")
+                    {
+                        await register.addFriend(friendtoadd);
+                    }
+                    
                 }              
                 catch(Exception)
                 {
@@ -40,7 +44,15 @@ namespace Jabber
             Button btnOpenFriendList = FindViewById<Button>(Resource.Id.btn_openFriendList);
             btnOpenFriendList.Click += delegate {
                 StartActivity(typeof(FriendListActivity));
+                Finish();
             };
+
+            Button btnGoBackToMain = FindViewById<Button>(Resource.Id.btn_GoBackToMain1);
+            btnGoBackToMain.Click += delegate
+            {
+                SetContentView(Resource.Layout.Main);
+                Finish();
+            };   
         }
     }
 }

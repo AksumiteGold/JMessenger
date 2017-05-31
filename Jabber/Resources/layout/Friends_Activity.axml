@@ -24,4 +24,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_openFriendList" />
+    <Button
+        android:text="Home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_GoBackToMain1" />
 </LinearLayout>

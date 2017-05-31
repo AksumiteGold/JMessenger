@@ -8,21 +8,19 @@ using Microsoft.AspNet.SignalR.Client;
 
 namespace Jabber
 {
-    [Activity(Label = "Jabber", MainLauncher = false, Icon = "@drawable/icon")]
+    [Activity(Label = "Jabber - Messaging", MainLauncher = false, Icon = "@drawable/icon")]
     public class ChatActivity: Activity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Chat_Activity);
             GetData getdata = new GetData();
-            GetInfo(getdata.getUsername(), "room");
+            GetInfo(getdata.getUsername(), "room", "abdella");
         }
 
         //This method will get the info from the chat server and send 
-        public async void GetInfo(string name, string room)
+        public async void GetInfo(string name, string room, string key)
         {
             ListView msgview = FindViewById<ListView>(Resource.Id.msgview);
             EditText chatmsg = (EditText)FindViewById(Resource.Id.msg);
@@ -40,7 +38,7 @@ namespace Jabber
             {
                 this.RunOnUiThread(() =>
                 {
-                    Messages.Add(user + ": " + Cryptology.Decrypt(message, "abdella"));
+                    Messages.Add(user + ": " + Cryptology.Decrypt(message, key));
                     ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, Messages);
                     msgview.Adapter = adapter;
                     //text.Text += string.Format("Received Msg: {0}\r\n", message);
@@ -65,7 +63,7 @@ namespace Jabber
             //This button will send the message through the "SendToSpecificRoom" method in the server 
             btn_send.Click += async delegate
             {
-                await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, Cryptology.Encrypt(chatmsg.Text, "abdella"), room });
+                await chatHubProxy.Invoke("SendToSpecificRoom", new object[] { name, Cryptology.Encrypt(chatmsg.Text, key), room });
                 chatmsg.Text = "";
             };
 
