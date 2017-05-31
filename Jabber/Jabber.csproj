@@ -149,7 +149,6 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\Register.axml" />
     <AndroidResource Include="Resources\layout\Register_Activity.axml" />
     <AndroidResource Include="Resources\layout\SignIn_Activity.axml" />
     <AndroidResource Include="Resources\layout\Welcome_Activity.axml">
@@ -158,10 +157,10 @@
     <AndroidResource Include="Resources\layout\Chat_Activity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\testing.axml">
+    <AndroidResource Include="Resources\layout\Friends_Activity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Friends_Activity.axml">
+    <AndroidResource Include="Resources\layout\Welcome_Activity1.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

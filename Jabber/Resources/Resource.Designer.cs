@@ -3047,6 +3047,9 @@ namespace Jabber
 			// aapt resource value: 0x7f03003e
 			public const int Welcome_Activity = 2130903102;
 			
+			// aapt resource value: 0x7f03003f
+			public const int Welcome_Activity1 = 2130903103;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
