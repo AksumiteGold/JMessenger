@@ -32,8 +32,7 @@ namespace Jabber
             // This creates a proxy to the 'ChatHub' SignalR Hub 
             var chatHubProxy = hubConnection.CreateHubProxy("ChatHub");
 
-            // Wire up a handler for the 'addChatMessage' for the server
-            // to be called on our client
+            // This wires up a handler for the 'addChatMessage' for the server to be called on our client
             chatHubProxy.On<string, string>("addChatMessage", (user, message) =>
             {
                 this.RunOnUiThread(() =>
@@ -41,7 +40,6 @@ namespace Jabber
                     Messages.Add(user + ": " + Cryptology.Decrypt(message, key));
                     ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, Messages);
                     msgview.Adapter = adapter;
-                    //text.Text += string.Format("Received Msg: {0}\r\n", message);
                 });
             });
 

@@ -160,9 +160,6 @@
     <AndroidResource Include="Resources\layout\Friends_Activity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Welcome_Activity1.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\FriendList_Activity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
