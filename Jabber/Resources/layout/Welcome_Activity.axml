@@ -3,15 +3,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <TextView
-      android:text="Welcome to Jabber Messenger!"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/tv_welcome" />
-  <Button
-      android:text="Proceed"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/btn_proceed" />
+    <TextView
+        android:text="Welcome to Jabber Messenger!"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_welcome" />
+    <Button
+        android:text="Proceed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_proceed" />
 </LinearLayout>

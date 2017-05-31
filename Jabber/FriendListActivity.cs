@@ -18,7 +18,7 @@ namespace Jabber
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.testing);
+            SetContentView(Resource.Layout.FriendList_Activity);
             ListView friendListview = FindViewById<ListView>(Resource.Id.friendsview);
 
             GetData getdata = new GetData();
