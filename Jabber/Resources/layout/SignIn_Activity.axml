@@ -1,38 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:text="Username"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_username" />
+    android:layout_height="match_parent"
+    android:background="#dedbdb">
     <EditText
+        android:id="@+id/tf_username"
+        android:layout_width="600px"
+        android:layout_height="90px"
+        android:ems="10"
         android:inputType="textPersonName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tf_username" />
-    <TextView
-        android:text="Password"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_password" />
+        android:background="@drawable/textfield"
+        android:layout_marginBottom="49dp"
+        android:layout_above="@+id/tf_password"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
     <EditText
+        android:id="@+id/tf_password"
+        android:layout_width="600px"
+        android:layout_height="90px"
+        android:ems="10"
         android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tf_password" />
+        android:background="@drawable/textfield"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignLeft="@+id/imageView5"
+        android:layout_alignStart="@+id/imageView5" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="600px"
+        android:layout_height="120px"
+        android:src="@drawable/jabberlogo"
+        android:layout_marginTop="52dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="180px"
+        android:layout_height="70px"
+        android:src="@drawable/username"
+        android:layout_above="@+id/tf_username"
+        android:layout_alignLeft="@+id/tf_username"
+        android:layout_alignStart="@+id/tf_username" />
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="180px"
+        android:layout_height="70px"
+        android:src="@drawable/password"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/tf_username"
+        android:layout_alignStart="@+id/tf_username" />
     <Button
-        android:text="Sign in"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_signin"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_signin" />
-    <Button
+        android:layout_below="@+id/tf_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Sign in" />
+    <TextView
+        android:id="@+id/btn_createAccount"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_signin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
         android:text="Create account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_createAccount" />
-</LinearLayout>
+        android:onClick="onCreateAccount"
+        android:clickable="true"
+        android:textColor="@color/colorAccent" />
+</RelativeLayout>

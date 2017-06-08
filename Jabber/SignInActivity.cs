@@ -24,7 +24,7 @@ namespace Jabber
             SetContentView(Resource.Layout.SignIn_Activity);
 
             Button btnSignIn = FindViewById<Button>(Resource.Id.btn_signin);
-            Button btnCreateAccount = FindViewById<Button>(Resource.Id.btn_createAccount);
+            TextView btnCreateAccount = FindViewById<TextView>(Resource.Id.btn_createAccount);
             EditText tfUsername = FindViewById<EditText>(Resource.Id.tf_username);
             EditText tfPassword = FindViewById<EditText>(Resource.Id.tf_password);
 
@@ -32,7 +32,7 @@ namespace Jabber
             btnSignIn.Click += delegate
             {
                 SignIn signin = new SignIn();
-                signin.DeleteCredentials();
+                //signin.DeleteCredentials();
 
                 if (signin.authenticateUser(tfUsername.Text, tfPassword.Text) == false)
                 {
