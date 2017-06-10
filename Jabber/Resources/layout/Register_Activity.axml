@@ -1,77 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:text="Enter account details:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dedbdb">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView8" />
-    <TextView
-        android:text="Firstname"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/createaccount" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6" />
+        android:layout_alignLeft="@+id/tf_regFirstname"
+        android:layout_alignStart="@+id/tf_regFirstname"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="29dp"
+        android:src="@drawable/firstname" />
     <EditText
-        android:inputType="textPersonName"
-        android:layout_width="match_parent"
+        android:id="@+id/tf_regFirstname"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tf_regFirstname" />
-    <TextView
-        android:text="Lastname"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:inputType="textPersonName" />
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView7" />
+        android:layout_alignEnd="@+id/imageView3"
+        android:layout_alignRight="@+id/imageView3"
+        android:layout_below="@+id/tf_regFirstname"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/lastname" />
     <EditText
-        android:inputType="textPersonName"
-        android:layout_width="match_parent"
+        android:id="@+id/tf_regLastname"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tf_regLastname" />
-    <TextView
-        android:text="E-mail"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
+        android:layout_alignLeft="@+id/imageView6"
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_below="@+id/imageView6"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:inputType="textPersonName" />
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
+        android:layout_alignLeft="@+id/tf_regLastname"
+        android:layout_alignStart="@+id/tf_regLastname"
+        android:layout_below="@+id/tf_regLastname"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/email" />
     <EditText
-        android:inputType="textEmailAddress"
-        android:layout_width="match_parent"
+        android:id="@+id/tf_regEmail"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tf_regEmail" />
-    <TextView
-        android:text="Username"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
+        android:layout_alignLeft="@+id/imageView7"
+        android:layout_alignStart="@+id/imageView7"
+        android:layout_below="@+id/imageView7"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:inputType="textPersonName" />
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
+        android:layout_marginTop="8dp"
+        android:src="@drawable/username"
+        android:layout_below="@+id/tf_regEmail"
+        android:layout_alignLeft="@+id/tf_regUsername"
+        android:layout_alignStart="@+id/tf_regUsername" />
     <EditText
-        android:inputType="textPersonName"
-        android:layout_width="match_parent"
+        android:id="@+id/tf_regUsername"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tf_regUsername" />
-    <TextView
-        android:text="Password"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
+        android:layout_alignLeft="@+id/imageView7"
+        android:layout_alignStart="@+id/imageView7"
+        android:layout_below="@+id/imageView8"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:inputType="textPersonName" />
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
+        android:layout_alignLeft="@+id/tf_regUsername"
+        android:layout_alignStart="@+id/tf_regUsername"
+        android:layout_below="@+id/tf_regUsername"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/password" />
     <EditText
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
+        android:id="@+id/tf_regPassword"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tf_regPassword" />
+        android:layout_alignLeft="@+id/imageView9"
+        android:layout_alignStart="@+id/imageView9"
+        android:layout_below="@+id/imageView9"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:inputType="textPersonName" />
     <Button
+        android:id="@+id/btn_createReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
         android:text="Create account"
-        android:layout_width="match_parent"
+        android:layout_below="@+id/tf_regPassword"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/btn_cancelReg"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_createAccount" />
-    <Button
+        android:layout_marginTop="14dp"
         android:text="Cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_cancel" />
-</LinearLayout>
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/btn_createReg"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

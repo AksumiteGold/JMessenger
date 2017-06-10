@@ -21,10 +21,10 @@ namespace Jabber
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.Register_Activity);
-            Button btnCreateAccount = FindViewById<Button>(Resource.Id.btn_createAccount);
-            Button btnCancel = FindViewById<Button>(Resource.Id.btn_cancel);
+            Button btnCreateReg = FindViewById<Button>(Resource.Id.btn_createReg);
+            TextView btnCancelReg = FindViewById<TextView>(Resource.Id.btn_cancelReg);
 
-            btnCreateAccount.Click += async delegate
+            btnCreateReg.Click += async delegate
             {
                 EditText tfRegFirstname = FindViewById<EditText>(Resource.Id.tf_regFirstname);
                 EditText tfRegLastname = FindViewById<EditText>(Resource.Id.tf_regLastname);
@@ -46,7 +46,7 @@ namespace Jabber
                 }
             };
 
-            btnCancel.Click += delegate {
+            btnCancelReg.Click += delegate {
                 StartActivity(typeof(SignInActivity));
                 Toast.MakeText(this, "Going back to login", ToastLength.Long);
                 Finish();

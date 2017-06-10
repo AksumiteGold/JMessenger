@@ -6,57 +6,56 @@
     android:background="#dedbdb">
     <EditText
         android:id="@+id/tf_username"
-        android:layout_width="600px"
-        android:layout_height="90px"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView5"
+        android:layout_alignLeft="@+id/tf_password"
+        android:layout_alignStart="@+id/tf_password"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/textfield"
-        android:layout_marginBottom="49dp"
-        android:layout_above="@+id/tf_password"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView" />
+        android:ems="10"
+        android:inputType="textPersonName" />
     <EditText
         android:id="@+id/tf_password"
-        android:layout_width="600px"
-        android:layout_height="90px"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:background="@drawable/textfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/imageView5"
-        android:layout_alignLeft="@+id/imageView5"
-        android:layout_alignStart="@+id/imageView5" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:inputType="textPassword" />
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="600px"
-        android:layout_height="120px"
-        android:src="@drawable/jabberlogo"
-        android:layout_marginTop="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/jabbermessenger" />
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="180px"
-        android:layout_height="70px"
-        android:src="@drawable/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/tf_username"
         android:layout_alignLeft="@+id/tf_username"
-        android:layout_alignStart="@+id/tf_username" />
+        android:layout_alignStart="@+id/tf_username"
+        android:src="@drawable/username" />
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="180px"
-        android:layout_height="70px"
-        android:src="@drawable/password"
-        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tf_username"
-        android:layout_alignStart="@+id/tf_username" />
+        android:layout_alignStart="@+id/tf_username"
+        android:layout_centerVertical="true"
+        android:src="@drawable/password" />
     <Button
         android:id="@+id/btn_signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:layout_marginTop="47dp"
         android:layout_below="@+id/tf_password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:text="Sign in" />
+        android:layout_centerHorizontal="true" />
     <TextView
         android:id="@+id/btn_createAccount"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -66,7 +65,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
         android:text="Create account"
-        android:onClick="onCreateAccount"
-        android:clickable="true"
         android:textColor="@color/colorAccent" />
 </RelativeLayout>
