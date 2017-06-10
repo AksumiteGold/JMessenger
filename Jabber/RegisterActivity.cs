@@ -16,7 +16,7 @@ namespace Jabber
     public class RegisterActivity : Activity
     {
 
-        protected override void OnCreate(Bundle bundle) 
+        protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
